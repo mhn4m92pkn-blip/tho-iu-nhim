@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#fff1e5">
+<title>Thế giới tình yêu của Nhím và Thỏ 🌈</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="floating" aria-hidden="true">♡　✦　♡　✧　♡　✦</div>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="Trang chủ">🦔 <span>Nhím</span> <b>♡</b> <span>Thỏ</span> 🐰</a>
+  <button id="musicToggle" class="small-btn" aria-label="Bật hoặc tắt nhạc">♫ Nhạc: tắt</button>
+</header>
+<main id="app">
+  <section id="home" class="screen active">
+    <div class="rainbow" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="hero-card">
+      <div class="eyebrow">A LITTLE WORLD MADE JUST FOR US</div>
+      <div class="hero-characters"><span>🦔</span><span class="heart-beat">💗</span><span>🐰</span></div>
+      <h1>Thế giới tình yêu<br><em>của Nhím và Thỏ</em></h1>
+      <p>Một hành trình nhỏ, chứa thật nhiều điều em muốn nói với anh.</p>
+      <button class="primary" id="startBtn">Bắt đầu cuộc phiêu lưu <span>→</span></button>
+      <div class="tiny-note">🌈 6 màn chơi · những kỷ niệm của chúng mình</div>
+    </div>
+    <div class="cloud cloud-one"></div><div class="cloud cloud-two"></div>
+  </section>
+
+  <section id="maze" class="screen">
+    <div class="level-head"><span class="level-pill">LEVEL 1</span><span>🍊 SECRET MAZE</span></div>
+    <h2>Lối vào mê cung bí mật</h2>
+    <p class="sub">Dẫn Nhím tìm đường đến Thỏ. Trên đường đi, hãy giải đáp 3 câu hỏi nhé!</p>
+    <div class="maze-wrap">
+      <div class="maze-top"><span>🦔 Nhím bắt đầu ở đây</span><span>🐰 Thỏ đang đợi</span></div>
+      <div id="mazeGrid" class="maze-grid" aria-label="Mê cung"></div>
+      <div class="maze-controls">
+        <button data-move="up">↑</button><div><button data-move="left">←</button><button data-move="down">↓</button><button data-move="right">→</button></div>
+        <small>Em có thể dùng phím mũi tên trên máy tính hoặc các nút này trên điện thoại.</small>
+      </div>
+    </div>
+    <div id="carrotQuiz" class="quiz-card hidden">
+      <div class="big-emoji">🥕</div><div class="eyebrow" id="carrotCount">CỦ CÀ RỐT 1/3</div>
+      <h3 id="carrotQuestion"></h3><div id="carrotOptions" class="options"></div><p id="carrotFeedback" class="feedback"></p>
+    </div>
+    <div class="center"><button class="secondary" id="mazeHint">Gợi ý đường đi</button></div>
+  </section>
+
+  <section id="puzzle" class="screen">
+    <div class="level-head"><span class="level-pill">LEVEL 2</span><span>📸 OUR FIRST MEMORY</span></div>
+    <h2>Kỷ niệm đầu tiên của chúng mình</h2>
+    <p class="sub">Chạm vào hai mảnh bất kỳ để đổi chỗ, ghép lại bức ảnh kỷ niệm nhé.</p>
+    <div class="photo-pair">
+      <figure><img src="assets/hedgehog.jpg" alt="Ảnh anh"><figcaption>My Hedgehog 🦔</figcaption></figure>
+      <div class="pair-heart">♡</div>
+      <figure><img src="assets/bunny.jpg" alt="Ảnh em"><figcaption>Your Bunny 🐰</figcaption></figure>
+    </div>
+    <div class="puzzle-board" id="puzzleBoard"></div>
+    <div class="center"><button class="secondary" id="shufflePuzzle">Xáo trộn lại</button></div>
+    <div id="dateQuiz" class="quiz-card hidden">
+      <div class="big-emoji">💌</div><h3>Anh còn nhớ hôm đó là ngày bao nhiêu không nè?</h3>
+      <div class="options"><button data-date="20/2/2026">A · 20/02/2026</button><button data-date="21/2/2026">B · 21/02/2026</button><button data-date="22/2/2026">C · 22/02/2026</button></div>
+      <p id="dateFeedback" class="feedback"></p>
+    </div>
+  </section>
+
+  <section id="memory" class="screen">
+    <div class="level-head"><span class="level-pill">LEVEL 3</span><span>🃏 MEMORY MATCH</span></div>
+    <h2>Trí nhớ của anh siêu đến đâu?</h2>
+    <p class="sub">Tìm đủ 5 cặp hình giống nhau trong 10 thẻ nhé!</p>
+    <div id="memoryBoard" class="memory-board"></div>
+    <div class="game-status" id="memoryStatus">Đã tìm được 0/5 cặp</div>
+    <div id="heartHunt" class="quiz-card hidden">
+      <div class="level-pill">BONUS GAME</div><h3>Heart Hunt — thu thập 10 trái tim</h3>
+      <p>Chạm vào các trái tim để thu thập. Khi đủ 10 trái tim, hãy chọn đúng hai nửa trái tim khớp nhau.</p>
+      <div id="heartCollection" class="heart-collection"></div>
+      <div id="heartPieces" class="heart-pieces hidden"></div>
+      <p id="heartFeedback" class="feedback"></p>
+    </div>
+  </section>
+
+  <section id="letter" class="screen">
+    <div class="level-head"><span class="level-pill">LEVEL 4</span><span>💌 A LETTER FOR YOU</span></div>
+    <h2>Một điều em muốn nói với anh</h2>
+    <p class="sub">Chạm vào phong thư để mở lời nhắn của Thỏ.</p>
+    <button id="envelope" class="envelope" aria-label="Mở thư"><span>💌</span><small>For my favorite person</small></button>
+    <article id="loveLetter" class="letter-paper hidden">
+      <div class="letter-top">Dear anh iu dấu,</div>
+      <p>Em thích cách anh luôn cố gắng vì những điều mình muốn, thích những điều anh làm cho em khi em còn chưa nói ra.</p>
+      <p>Em thấy anh dễ thương khi anh cười đó nha ^^</p>
+      <div class="letter-sign">Thương anh nhiều,<br><span>Thỏ 🐰</span></div>
+    </article>
+  </section>
+
+  <section id="music" class="screen">
+    <div class="level-head"><span class="level-pill">LEVEL 5</span><span>🎧 OUR MUSIC</span></div>
+    <h2>Những giai điệu của chúng mình</h2>
+    <p class="sub">Chọn bài anh thích nhất hiện tại. Không có đáp án đúng hay sai đâu nha!</p>
+    <div class="music-card"><div class="record">♫</div><div><strong>Which song is your favorite?</strong><p>Chọn một bài hát của anh</p></div></div>
+    <div id="hisSongs" class="song-list"></div>
+    <div id="hisSongFeedback" class="feedback"></div>
+    <div class="divider"></div>
+    <h3>Thế còn bài em thích nhất thì sao? 💗</h3>
+    <p class="sub">Anh thử đoán xem trong 4 bài này, em thích bài nào nhất nè.</p>
+    <div id="herSongs" class="song-list"></div>
+    <div id="herSongFeedback" class="feedback"></div>
+  </section>
+
+  <section id="galaxy" class="screen">
+    <div class="level-head"><span class="level-pill">LEVEL 6</span><span>🌌 GALAXY OF LOVE</span></div>
+    <h2>Vũ trụ nhỏ của chúng mình</h2>
+    <p class="sub">Chạm vào mặt trời hoặc một hành tinh để mở một lá thư nhé.</p>
+    <div class="space-scene">
+      <button class="sun" data-letter="0" aria-label="Mặt trời">☀️</button>
+      <button class="planet p1" data-letter="1" aria-label="Hành tinh 1">🪐</button>
+      <button class="planet p2" data-letter="2" aria-label="Hành tinh 2">🌍</button>
+      <button class="planet p3" data-letter="3" aria-label="Hành tinh 3">🩷</button>
+      <button class="planet p4" data-letter="4" aria-label="Hành tinh 4">🔴</button>
+      <button class="planet p5" data-letter="5" aria-label="Hành tinh 5">🟣</button>
+      <button class="planet p6" data-letter="6" aria-label="Hành tinh 6">🪐</button>
+      <button class="planet p7" data-letter="7" aria-label="Hành tinh 7">💙</button>
+      <button class="planet p8" data-letter="8" aria-label="Hành tinh 8">🌙</button>
+      <div class="orbit orbit1"></div><div class="orbit orbit2"></div><div class="orbit orbit3"></div>
+      <span class="space-star s1">✦</span><span class="space-star s2">✧</span><span class="space-star s3">✦</span><span class="space-star s4">✧</span>
+    </div>
+    <div id="planetProgress" class="game-status">Đã mở 0/9 bức thư</div>
+    <article id="planetLetter" class="letter-paper hidden"></article>
+  </section>
+
+  <section id="ending" class="screen">
+    <div class="ending-sky"><span>🌈</span><span>✨</span><span>💗</span><span>⭐</span><span>🌈</span></div>
+    <div class="ending-card">
+      <div class="hero-characters"><span>🦔</span><span class="heart-beat">💗</span><span>🐰</span></div>
+      <div class="eyebrow">YOU MADE IT THROUGH OUR LITTLE WORLD</div>
+      <h1>Em yêu anh</h1>
+      <p>Anh đã đi hết hành trình của Nhím và Thỏ rồi đó.</p>
+      <p class="final-message">Cảm ơn anh đã bước vào thế giới nhỏ này. Em mong chúng mình sẽ còn tạo ra thật nhiều kỷ niệm mới, để câu chuyện của hai đứa vẫn tiếp tục viết thêm thật nhiều chương nữa. 💗</p>
+      <div class="signature">Yêu anh nhiều,<br><strong>Thỏ 🐰</strong></div>
+      <button class="primary" id="replayBtn">Chơi lại từ đầu ↻</button>
+    </div>
+  </section>
+</main>
+<footer>Made with love by Thỏ 🐰 · for Nhím 🦔</footer>
+<div id="toast" class="toast" role="status"></div>
+<script src="script.js"></script>
+</body>
+</html>
